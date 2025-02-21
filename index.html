@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number guesser</title>
+    <link rel="icon" type="images/jpg" href="Thmnl.png">
+    <style>
+            /*
+    
+    Made By:
+    Sarthak Raymondal
+    
+    */
+                .it1::-webkit-outer-spin-button,
+        .it1::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          
+            
+        }
+
+        ::-webkit-scrollbar {
+                width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: rgba(158, 168, 165, 0.217);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(97, 93, 93);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(26, 25, 25);
+        }
+        .ca1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ft1 {
+            font-family: "Atkinson Hyperlegible Next", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+        }
+        body {
+            margin: 0;
+        }
+        .title1 {
+            font-size: 50px;
+            text-align: center;
+            font-weight: 900;
+
+        }
+        .inp1 {
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 15px;
+            font-weight: 900;
+            text-align: center;
+            font-size: 30px;
+            background: -webkit-linear-gradient(blue,pink);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn1 {
+            width: 100px;
+            height: 50px;
+            border: none;
+            border-radius: 15px;
+            font-weight: 900;
+            background: #dce1e8;
+            transition: 0.5s;
+        }
+        .un1 {
+            transition: 0.5s;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .btn1:hover {
+            .un1 {
+                font-size: 20px;
+            }
+            filter: brightness(80%);
+        }
+        .box1 {
+            display: flex;
+            height: 0px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            overflow: hidden;
+            transition: 1s;
+            background-color: none;
+        }
+        .at1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+            font-size: 20px;
+            transition: 1s;
+            transform: rotateZ(0deg);
+            background: -webkit-linear-gradient(red , orange);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation-name: anim1;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes anim1 {
+            0%{transform: rotateZ(-0.9deg);}
+            50%{transform: rotateZ(0.9deg);}
+            100%{transform: rotateZ(-1.9deg);}
+        }
+        .box2 {
+            width: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        #a1 {
+            width: 0%;
+            transition: 1s;
+            overflow: hidden;
+        }
+        #a2 {
+            width: 0%;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        #a3 {
+            width: 0%;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        #a4 {
+            width: 0%;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        #a5 {
+            width: 0%;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        #a6 {
+            width: 0%;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+        #line1 {
+            transition: 0.5s;
+            width: 0%;
+        }
+        .txt2 {
+            font-size: 30px;font-weight: 900;
+        }
+        .aa1 {
+            font-weight: 900;
+            transition: 0.5s;
+        }
+        #body {
+            transition: 0.5s;
+            color:black
+        }
+        .opt1 {
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .opt1:hover {
+            filter: brightness(70%);
+        }
+    </style>
+</head>
+<body class="ft1" id="body">
+    <!--
+
+    Made by:
+    Sarthak Raymondal
+
+    -->
+    <p class="title1 dm">Number guesser</p>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next&display=swap" rel="stylesheet">
+        <!--JS stuff:
+        scoreos = ttp1.offsetTop
+        po = window.pageYOffset
+    -->
+    <div style="margin-left: 5px;display: flex;align-items: center;"><a class="aa1 dm">Mode:</a>&nbsp;<input type="radio" name="m1" id="dmo1" onclick="light()" class="opt1"><a class="dm aa1">Light</a><input type="radio" name="m1" onclick="dark()" class="opt1" id="dmo2"><a class="dm aa1">Dark</a></div><br>
+    <div style="margin-left: 5px;"><a style="font-size: 15px;font-weight: 900;" class="dm">This machine can tell the answer by only knowing one of the no of the 5-no equation.Isn't it impressive?Just one of the five nos and BOOM!!Answer on spot🗿Get started by entering a no.</a></div><br><br>
+    <div class="ca1">
+        <input type="number" class="it1 inp1" onkeyup="send1(event.key)" id="1">&nbsp;&nbsp;
+        <input type="number" class="it1 inp1" onkeyup="send2(event.key)" id="2">&nbsp;&nbsp;
+        <input type="number" class="it1 inp1" onkeyup="send3(event.key)" id="3">
+    </div>
+    <br>
+    <div class="ca1">
+        <button class="ft1 btn1" onclick="enter()"><p class="un1" onclick="enter()">Enter</p></button>
+    </div><br><br>
+    <div class="box1" id="bx1">
+        <p class="at1 " id="at1">Now press the enter and see the magic</p>
+    </div>
+    <br><br>
+    <div class="box2" id="box2">
+    <div style="width: 80%;display: block;">
+        <div class="ca1" id="a1">
+            <a class="txt2 dm" id="ra1">0</a>
+        </div>
+        <div class="ca1" id="a2">
+            <a class="txt2 dm"id="ra2">0</a>
+        </div>
+        <div class="ca1" id="a3">
+            <a class="txt2 dm" id="ra3">0</a>
+        </div>
+        <div class="ca1" id="a4">
+            <a class="txt2 dm"id="ra4">0</a>
+        </div>
+        <div class="ca1" id="a5">
+            <a class="txt2 dm" id="ra5">0</a>
+        </div>
+        <hr style="height: 3px;background-color: black;border-radius: 10px;" id="line1">
+        <div class="ca1" id="a6">
+            <a class="txt2 dm"id="ra6">0</a>
+        </div>
+    </div>
+    </div>
+<script src="confetti.js"></script>
+<script>
+    /*
+    
+    Made By:
+    Sarthak Raymondal
+    
+    */
+    var udm = localStorage.darkmode
+    if(udm) {
+        if(udm ==="1") {
+            document.getElementById("dmo2").checked = true;
+            dmo=0;dark()
+        }
+        else{dmo=0;light();document.getElementById("dmo1").checked = true;}
+    }
+    else{dmo=0;light();document.getElementById("dmo1").checked = true;}
+    var dmo = 0
+    const audio1 = new Audio('s1.mp3')
+    var phrase = 0;
+    inp = 0;
+    var v1 = 0;
+    var v2 = 0;
+    var v3 = 0;
+    var v4 = 0;
+    var v5 = 0;
+    var ans = 0;
+    function send1(key) {
+        
+        document.getElementById("1").value = ""
+        if(key === "1" ||key === "2" ||key === "3" ||key === "4" ||key === "5" ||key === "6" ||key === "7" ||key === "8" ||key === "9" ||key === "0") {
+            document.getElementById("1").value = parseInt(key) 
+            document.getElementById("2").select()
+        }
+    }
+    function send2(key) {
+        document.getElementById("2").value = ""
+        if(key === "1" ||key === "2" ||key === "3" ||key === "4" ||key === "5" ||key === "6" ||key === "7" ||key === "8" ||key === "9" ||key === "0") {
+            document.getElementById("2").value = parseInt(key) 
+            document.getElementById("3").select()
+        }
+    }
+    function send3(key) {
+        document.getElementById("3").value = ""
+        if(key === "1" ||key === "2" ||key === "3" ||key === "4" ||key === "5" ||key === "6" ||key === "7" ||key === "8" ||key === "9" ||key === "0") {
+            document.getElementById("3").value = parseInt(key) 
+            document.getElementById("bx1").style.height="100px"
+        }
+    }
+    function enter() {
+    inp = (parseInt(document.getElementById("1").value) * 100) + (parseInt(document.getElementById("2").value) * 10) + (parseInt(document.getElementById("3").value) * 1);
+    
+    if (inp < 100 || isNaN(inp)) {} 
+    else {
+        if (phrase === 0) {
+            if(dmo === 1) {document.getElementById("ra6").style.backgroundColor = "black"}
+            else{document.getElementById("ra6").style.backgroundColor = "white"}
+            document.getElementById("a1").style.width = "0%";
+            document.getElementById("a2").style.width = "0%";
+            document.getElementById("a3").style.width = "0%";
+            document.getElementById("a4").style.width = "0%";
+            document.getElementById("a5").style.width = "0%";
+            document.getElementById("a6").style.width = "0%";
+            document.getElementById("ra1").innerHTML = "";
+            document.getElementById("ra2").innerHTML = "";
+            document.getElementById("ra3").innerHTML = "";
+            document.getElementById("ra4").innerHTML = "";
+            document.getElementById("ra5").innerHTML = "";
+            document.getElementById("ra6").innerHTML = "";
+            phrase = 1;
+            confetti.stop()
+        } if (phrase === 1) {
+            phrase1();
+        } else if (phrase === 2) {
+            phrase2();
+        }
+        else if (phrase === 4) {
+            phrase4();
+        }
+        else if(phrase === 5) {
+            if(dmo === 1) {document.getElementById("ra6").style.backgroundColor = "black"}
+            else{document.getElementById("ra6").style.backgroundColor = "white"}
+            document.getElementById("a1").style.width = "0%";
+            document.getElementById("a2").style.width = "0%";
+            document.getElementById("a3").style.width = "0%";
+            document.getElementById("a4").style.width = "0%";
+            document.getElementById("a5").style.width = "0%";
+            document.getElementById("a6").style.width = "0%";
+            document.getElementById("ra1").innerHTML = "";
+            document.getElementById("ra2").innerHTML = "";
+            document.getElementById("ra3").innerHTML = "";
+            document.getElementById("ra4").innerHTML = "";
+            document.getElementById("ra5").innerHTML = "";
+            document.getElementById("ra6").innerHTML = "";
+            phrase = 1;
+            phrase1();
+            confetti.stop()
+        }
+    }
+}
+
+function phrase1() {
+    ans = 2000 + (inp - 2);
+    document.getElementById("box2").style.display = "flex";
+    document.getElementById("line1").style.width = "100%";
+    document.getElementById("ra1").innerHTML = inp + " (you)";
+    document.getElementById("a1").style.width = "100%";
+    document.getElementById("ra6").innerHTML = "Ans: " + (String(ans))[0] + "," + (String(ans))[1] + (String(ans))[2] + (String(ans))[3];
+    document.getElementById("a6").style.width = "100%";
+    document.getElementById("at1").style.fontSize = "0px";
+    document.getElementById("at1").innerHTML = "As u see,the answer is ready!!" + "<br>" + "Enter another no.";
+    document.getElementById("at1").style.fontSize = "20px";
+    document.getElementById("1").value = "";
+    document.getElementById("2").value = "";
+    document.getElementById("3").value = "";
+    phrase = 2;
+}
+
+function phrase2() {
+    document.getElementById("ra2").innerHTML = inp + " (you)";
+    document.getElementById("a2").style.width = "100%";
+    document.getElementById("at1").style.fontSize = "0px";
+    document.getElementById("at1").innerHTML = "Good now my turn!!";
+    document.getElementById("at1").style.fontSize = "20px";
+    document.getElementById("1").value = "";
+    document.getElementById("2").value = "";
+    document.getElementById("3").value = "";
+    phrase = 3;  
+    phrase3();
+}
+function phrase3() {
+    var t1 = String(inp)[0]
+    var t2 = String(inp)[1]
+    var t3 = String(inp)[2]
+    var t4 = parseInt(t1) - 9
+    var t5 = parseInt(t2) - 9
+    var t6 = parseInt(t3) - 9
+    if(t4 < 0) {
+        t4 = t4 * -1
+    }
+    if(t5 < 0) {
+        t5 = t5 * -1
+    }
+    if(t6 < 0) {
+        t6 = t6 * -1
+    }
+    total = (t4*100) + (t5 *10) + (t6*1)
+    document.getElementById("ra3").innerHTML = total + " (me)";
+    document.getElementById("a3").style.width = "100%";
+    document.getElementById("at1").style.fontSize = "0px";
+    document.getElementById("at1").innerHTML = "I'm done.Now you give the last one :)";
+    document.getElementById("at1").style.fontSize = "20px";
+    document.getElementById("1").value = "";
+    document.getElementById("2").value = "";
+    document.getElementById("3").value = "";
+    phrase = 4;
+}
+function phrase4() {
+    document.getElementById("ra4").innerHTML = inp + " (you)";
+    document.getElementById("a4").style.width = "100%";
+    document.getElementById("at1").style.fontSize = "0px";
+    document.getElementById("at1").innerHTML = "Check the answer now!!Impressive right?Enter a value" + "<br>" + "click enter to restart";
+    document.getElementById("at1").style.fontSize = "20px";
+    document.getElementById("1").value = "";
+    document.getElementById("2").value = "";
+    document.getElementById("3").value = "";
+    phrase5()
+    phrase = 5;  
+}
+function phrase5() {
+    var t1 = String(inp)[0]
+    var t2 = String(inp)[1]
+    var t3 = String(inp)[2]
+    var t4 = parseInt(t1) - 9
+    var t5 = parseInt(t2) - 9
+    var t6 = parseInt(t3) - 9
+    if(t4 < 0) {
+        t4 = t4 * -1
+    }
+    if(t5 < 0) {
+        t5 = t5 * -1
+    }
+    if(t6 < 0) {
+        t6 = t6 * -1
+    }
+    total = (t4*100) + (t5 *10) + (t6*1)
+    document.getElementById("ra5").innerHTML = total + " (me)";
+    document.getElementById("a5").style.width = "100%";
+    document.getElementById("ra6").style.backgroundColor = "yellow"
+    audio1.play()
+    confetti.start()
+    phrase = 5; 
+}
+function dark() {
+    localStorage.darkmode = "1"
+    dmo = 1
+    document.getElementById("body").style.backgroundColor = "black";
+    const aai = document.getElementsByClassName("dm");
+    var i = 0;
+    const aib = document.getElementsByClassName("inp1")
+    while (i < aib.length) {
+        aib[i].style.border = "2px solid white"
+        i+=1
+    }
+    i=0;
+
+    while (i < aai.length) {
+       
+        let currentColor = window.getComputedStyle(aai[i]).color;
+      
+        if (currentColor === "rgb(0, 0, 0)") { 
+            aai[i].style.color = "white";
+        }
+        i += 1;
+    }
+    document.getElementById("line1").style.backgroundColor = "white"
+    const toab = document.getElementById("ra6")
+    if (toab.style.backgroundColor === "yellow") {}
+    else{    toab.style.backgroundColor = "black"}
+}
+function light() {
+    localStorage.darkmode = "0"
+    dmo = 0
+    document.getElementById("body").style.backgroundColor = "white";
+    const aai = document.getElementsByClassName("dm");
+    var i = 0;
+    const aib = document.getElementsByClassName("inp1")
+    while (i < aib.length) {
+        aib[i].style.border = "2px solid black"
+        i+=1
+    }
+    i=0;
+   
+    while (i < aai.length) {
+       
+        let currentColor = window.getComputedStyle(aai[i]).color;
+       
+        if (currentColor === "rgb(255, 255, 255)") { 
+            aai[i].style.color = "black";
+        }
+        i += 1;
+    }
+    document.getElementById("line1").style.backgroundColor = "black"
+    const toab = document.getElementById("ra6")
+    if (toab.style.backgroundColor === "yellow") {}
+    else{    toab.style.backgroundColor = "white"}
+}
+
+</script>
+</body>
+</html>
